@@ -1,4 +1,4 @@
-package com.valtech.springbootangular5oktaexample;
+package com.valtech.base;
 
 import com.valtech.domain.Car;
 import com.valtech.repository.CarRepository;
