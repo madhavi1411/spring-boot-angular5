@@ -19,7 +19,6 @@ public class CoolCarController {
 	}
 
 	@GetMapping("/cool-cars")
-//	@CrossOrigin(origins = "http://localhost:4200")
 	public Collection<Car> coolCars() {
 		return carRepository.findAll().stream().filter(this::isCool).collect(Collectors.toList());
 	}

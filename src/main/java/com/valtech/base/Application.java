@@ -11,13 +11,15 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.stream.Stream;
 
 @EnableJpaRepositories(basePackages = "com.valtech.repository")
 @ComponentScan(basePackages = {"com.valtech"})
 @EntityScan(basePackages = {"com.valtech.domain"})
-@CrossOrigin(origins = "http://localhost:4200")
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
@@ -36,6 +38,16 @@ public class Application extends SpringBootServletInitializer {
 				carRepository.save(car);
 			});
 			carRepository.findAll().forEach(System.out::println);
+		};
+	}
+
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
+			}
 		};
 	}
 }
