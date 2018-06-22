@@ -18,3 +18,10 @@ To run the client, cd into the `client` folder and run:
  
 ```bash
 npm install && npm start
+
+
+Some of the reference links that helped in setting this application
+
+https://developer.okta.com/blog/2017/12/04/basic-crud-angular-and-spring-boot
+
+https://shekhargulati.com/2017/11/08/a-minimalist-guide-to-building-spring-boot-angular-5-applications/

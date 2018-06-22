@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {CarService} from "../shared/car/car.service";
+import {CarService} from '../shared/car/car.service';
 
 @Component({
   selector: 'app-car-list',
@@ -8,7 +8,7 @@ import {CarService} from "../shared/car/car.service";
 })
 export class CarListComponent implements OnInit {
 
-  cars: Array<any>
+  cars: Array<any>;
 
   constructor(private carService: CarService) { }
 

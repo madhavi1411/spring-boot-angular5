@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {CarService} from "./shared/car/car.service";
-import {HttpClientModule} from "@angular/common/http";
+import {CarService} from './shared/car/car.service';
+import {HttpClientModule} from '@angular/common/http';
 import { CarListComponent } from './car-list/car-list.component';
 
 
