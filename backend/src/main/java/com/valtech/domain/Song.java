@@ -3,7 +3,6 @@ package com.valtech.domain;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.ToString;
 
 import javax.persistence.Entity;
@@ -15,10 +14,15 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class Car {
+public class Song {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private @NonNull
-	String name;
+	private String title;
+	private boolean expedite;
+	private boolean preliminarySplits;
+
+	public String getSongKey() {
+		return "SD-" + id;
+	}
 }

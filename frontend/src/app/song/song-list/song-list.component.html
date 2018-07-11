@@ -1,0 +1,20 @@
+<div class = "table-responsive">
+  <table class="table table-sm">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Song</th>
+      <th scope="col">Expedite</th>
+      <th scope="col">Preliminary Splits</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = 'let song of songs'>
+      <td>{{song.id}}</td>
+      <td>{{song.title}}</td>
+      <td>{{song.expedite}}</td>
+      <td>{{song.preliminarySplits}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

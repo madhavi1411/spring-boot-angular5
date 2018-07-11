@@ -1,7 +1,7 @@
 package com.valtech.base;
 
-import com.valtech.domain.Car;
-import com.valtech.repository.CarRepository;
+import com.valtech.domain.Song;
+import com.valtech.repository.SongRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -29,25 +28,25 @@ public class Application extends SpringBootServletInitializer {
 	}
 
 	@Bean
-	ApplicationRunner init(CarRepository carRepository) {
+	ApplicationRunner init(SongRepository songRepository) {
 		return args -> {
 			Stream.of("Ferrari", "Jaguar", "Porsche", "Lamborghini", "Bugatti",
 			          "AMC Gremlin", "Triumph Stag", "Ford Pinto", "Yugo GV").forEach(name -> {
-				Car car = new Car();
-				car.setName(name);
-				carRepository.save(car);
+				Song song = new Song();
+				song.setTitle(name);
+				songRepository.save(song);
 			});
-			carRepository.findAll().forEach(System.out::println);
+			songRepository.findAll().forEach(System.out::println);
 		};
 	}
 
-//	@Bean
-//	public WebMvcConfigurer corsConfigurer() {
-//		return new WebMvcConfigurerAdapter() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
-//			}
-//		};
-//	}
+	@Bean
+	public WebMvcConfigurer corsConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedMethods("*").allowedOrigins("http://localhost:4200");
+			}
+		};
+	}
 }
