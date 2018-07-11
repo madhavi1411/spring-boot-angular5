@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from '@angular/router';
 import { SongListComponent } from './song-list/song-list.component';
-import {SongService} from "./services/song.service";
+import {SongService} from './services/song.service';
 
 
-export const  routes : Routes = [
+export const  routes: Routes = [
 
   {
     path: 'songs',
     component: SongListComponent,
 
-    //nested navigation
+    // nested navigation
     children: [
       {
         path: 'edit/:id',
